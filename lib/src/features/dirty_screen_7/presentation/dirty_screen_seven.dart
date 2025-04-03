@@ -12,62 +12,42 @@ class DirtyScreenSeven extends StatelessWidget {
         scrollDirection: Axis.vertical,
         child: Column(
           children: [
-            Card(
-              margin: EdgeInsets.all(8),
-              child: Padding(
-                padding: EdgeInsets.all(16.0),
-                child: Column(
-                  children: [
-                    Icon(Icons.star, size: 50),
-                    SizedBox(height: 8),
-                    Text('Stern', style: TextStyle(fontSize: 22)),
-                    Text('Das ist ein Stern', style: TextStyle(fontSize: 16)),
-                  ],
-                ),
-              ),
-            ),
-            Card(
-              margin: EdgeInsets.all(8),
-              child: Padding(
-                padding: EdgeInsets.all(16.0),
-                child: Column(
-                  children: [
-                    Icon(Icons.favorite, size: 50),
-                    SizedBox(height: 8),
-                    Text('Herz', style: TextStyle(fontSize: 22)),
-                    Text('Das ist ein Herz', style: TextStyle(fontSize: 16)),
-                  ],
-                ),
-              ),
-            ),
-            Card(
-              margin: EdgeInsets.all(8),
-              child: Padding(
-                padding: EdgeInsets.all(16.0),
-                child: Column(
-                  children: [
-                    Icon(Icons.home, size: 50),
-                    SizedBox(height: 8),
-                    Text('Haus', style: TextStyle(fontSize: 22)),
-                    Text('Das ist ein Haus', style: TextStyle(fontSize: 16)),
-                  ],
-                ),
-              ),
-            ),
-            Card(
-              margin: EdgeInsets.all(8),
-              child: Padding(
-                padding: EdgeInsets.all(16.0),
-                child: Column(
-                  children: [
-                    Icon(Icons.work, size: 50),
-                    SizedBox(height: 8),
-                    Text('Koffer', style: TextStyle(fontSize: 22)),
-                    Text('Das ist ein Koffer', style: TextStyle(fontSize: 16)),
-                  ],
-                ),
-              ),
-            ),
+            MenuCard(cardIcon: Icons.star, cardName: "Stern", cardText: "Das ist ein Stern"),
+            MenuCard(cardIcon: Icons.favorite, cardName: "Herz", cardText: "Das ist ein Herz"),
+            MenuCard(cardIcon: Icons.home, cardName: "Haus", cardText: "Das ist ein Haus"),
+            MenuCard(cardIcon: Icons.work, cardName: "Koffer", cardText: "Das ist ein Koffer"),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class MenuCard extends StatelessWidget {
+  final IconData cardIcon;
+  final String cardName;
+  final String cardText;
+
+  const MenuCard({
+    required this.cardIcon,
+    required this.cardName,
+    required this.cardText,
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      margin: const EdgeInsets.all(8),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            Icon(cardIcon, size: 50),
+            // Icon(Icons.star, size: 50),
+            const SizedBox(height: 8),
+            Text(cardName, style: const TextStyle(fontSize: 22)),
+            Text(cardText, style: const TextStyle(fontSize: 16)),
           ],
         ),
       ),
